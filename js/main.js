@@ -2,7 +2,7 @@
 const hdFields = [ "Namespace Id", "Universal Id", "Universal Id Type" ];
 // the actual messages we send
 const segments = {
-  "FHS": { cardLabel: "File Header", rowLabels: [
+  "FHS": { rowId: "FHS", cardLabel: "File Header", rowLabels: [
     "File Field Separator",
       "File Encoding Characters",
       { rowId: "FHS3", rowLabel: "File Sending Application", rowLabels: hdFields },
@@ -11,7 +11,7 @@ const segments = {
       { rowId: "FHS6", rowLabel: "File Receiving Facility", rowLabels: hdFields },
       "File Creation Date/Time"
     ] },
-  "BHS": { cardLabel: "Batch Header", rowLabels: [
+  "BHS": { rowId: "BHS", cardLabel: "Batch Header", rowLabels: [
       "File Field Separator",
       "File Encoding Characters",
       { rowId: "BHS3", rowLabel: "File Sending Application", rowLabels: hdFields },
@@ -20,7 +20,7 @@ const segments = {
       { rowId: "BSH6", rowLabel: "File Receiving Facility", rowLabels: hdFields },
       "File Creation Date/Time"
     ] },
-  "MSH": { cardLabel: "Message Header", rowLabels: [
+  "MSH": { rowId: "MSH", cardLabel: "Message Header", rowLabels: [
       "Field Separator",
       "Encoding Characters",
       "Sending Application",
@@ -48,7 +48,7 @@ const segments = {
       "Receiving Network Address"
     ]
   },
-  "NTE": { cardLabel: "Notes and Comments", rowLabels: [
+  "NTE": { rowId: "NTE", cardLabel: "Notes and Comments", rowLabels: [
       "Set Id",
       "Source of Comment",
       "Comment",
@@ -63,7 +63,7 @@ const segments = {
       "Effective Start Date",
       "Expiration Date",
     ] },
-  "PID": { cardLabel: "Patient Identification", rowLabels: [
+  "PID": { rowId: "PID", cardLabel: "Patient Identification", rowLabels: [
       "Set Id",
       "Patient Id",
       "Patient Identifier List",
@@ -105,10 +105,10 @@ const segments = {
       "Tribal Citizenship",
       "Patient Telecommunication Information"
     ] },
-  "ORC": { cardLabel: "Common Order", rowLabels: [
+  "ORC": { rowId: "ORC", cardLabel: "Common Order", rowLabels: [
       "Order Control",
     ]},
-  "OBR": { cardLabel: "Observation Request", rowLabels: [
+  "OBR": { rowId: "OBR", cardLabel: "Observation Request", rowLabels: [
       "Set Id", "Placer Order Number", "Filler Order Number", "Universal Service Identifier",
       "Priority", "Requested Date/Time", "Observation Date/Time #", "Observation End Date/Time #",
       "Collection Volume", "Collector Identifier", "Specimen Action Code", "Danger Code",
@@ -123,10 +123,10 @@ const segments = {
         ] },
       "Order Callback Phone Number",
     ]},
-  "OBX": { cardLabel: "Observation Result", rowLabels: [
+  "OBX": { rowId: "OBX", cardLabel: "Observation Result", rowLabels: [
       "Set Id",
     ]},
-  "SPM": { cardLabel: "Specimen", rowLabels: [
+  "SPM": { rowId: "SPM", cardLabel: "Specimen", rowLabels: [
       "Set Id", "Specimen Id", "Specimen Parent Ids",
       { rowId: "SPM4", rowLabel: "Specimen Type", rowLabels: [ "Identifier", "Text", "Name of Coding System" ] },
       "Specimen Type Modifier",
@@ -138,9 +138,9 @@ const segments = {
       "Number of Specimen Containers", "Container Type", "Container Condition", "Specimen Child Role",
       "Accession Id", "Other Specimen Id", "Shipment Id"
     ]},
-  "SFT": { cardLabel: "Software Segment", rowLabels: [ "Software Vendor Organization", "Release Number", "Software Product Name", "Software Binary Id", "Software Product Information", "Software Install Date" ] },
-  "FTS": { cardLabel: "File Trailer", rowLabels: [ "File Batch Count", "File Batch Comment" ] },
-  "BTS": { cardLabel: "Batch Trailer", rowLabels: [ "Batch Message Count", "Batch Comment", "Batch Totals" ] },
+  "SFT": { rowId: "SFT", cardLabel: "Software Segment", rowLabels: [ "Software Vendor Organization", "Release Number", "Software Product Name", "Software Binary Id", "Software Product Information", "Software Install Date" ] },
+  "FTS": { rowId: "FTS", cardLabel: "File Trailer", rowLabels: [ "File Batch Count", "File Batch Comment" ] },
+  "BTS": { rowId: "BTS", cardLabel: "Batch Trailer", rowLabels: [ "Batch Message Count", "Batch Comment", "Batch Totals" ] },
 };
 
 splitLineIntoArray = (segmentType, line = "", length = 0, delim = "|") => {
